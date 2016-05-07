@@ -1,0 +1,17 @@
+extends layout
+
+block content
+		-if(status === 0)
+			p Kitap mevcut değil fakat rezerv edildi, mevcut olduğunda e-mail ile haber alacaksınız.
+		-else if(status === 1)
+			p Bu kitabı daha önce rezerv etmiştiniz, mevcut olduğunda e-mail ile haber alacaksınız.
+		-else if(status === 2)
+			p Ödünç alma kapasitenizi doldurduğunuz için kitabı ödünç alamazsınız.
+		-else if(status === 3)
+			p Zamanında teslim etmedikleriniz olduğu için kitabı ödünç alamazsınız.
+		-else if(status === 4)
+			p Bu kitabı #{months} ay içerisinde geri getirmek üzere ödünç aldınız.
+		-else if(status === 5)
+			p Bu kitabı daha önceden #{borrow_info.due_date} tarihinden önce geri getirmek üzere ödünç almıştınız.
+		-else if(status === 6)
+			p Bu kitap ödünç alınmış ve de rezerv edilmiş, üzgünüz.

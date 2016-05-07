@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1 KİTAPLAR
+	-if(items === undefined || items.length === 0)
+		p Maalesef şu anda kütüphanemizde hiçbir kitap bulunmamaktadır.
+	-else
+		-for(var i = 0; i < items.length; ++i)
+			-var type = items[i].type == 0 ? "Book" : "Magazine";
+			p #{type}  -  
+				|#{items[i].name}  
+				a(href="/getBook?book_id=#{items[i].id}") Seç
