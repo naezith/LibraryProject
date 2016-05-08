@@ -7,7 +7,9 @@ Clone the project or download it as zip.
 ### Database
 
 Open up your MySQL server.
-Create a database named `libraryproj`
+
+Create a database named `libraryproj`.
+
 Then import the `libraryproj.sql` to your database.
 
 ### NPM
