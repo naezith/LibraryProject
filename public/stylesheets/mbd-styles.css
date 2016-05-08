@@ -1,0 +1,8 @@
+.mbd-margin {
+  margin-bottom: 20px;
+}
+
+/*Deletes bottom margin*/
+.del-bot-mrgn {
+  margin-bottom: 0px;
+}
