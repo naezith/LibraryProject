@@ -4,6 +4,8 @@ A project for the class "Software Engineering"
 ## How to execute the project
 Clone the project or download it as zip.
 
+To execute the project follow the instructions below.
+
 ### Database
 
 Open up your MySQL server.
