@@ -36,8 +36,8 @@ var dbConnection = mysql.createConnection({
 	database: 'libraryproj'
 });
 
-app.use('/', require('./routes/index')(dbConnection));
-app.use('/getBook', require('./routes/getBook')(dbConnection));
+app.use('/', require('./routes/listItems')(dbConnection));
+app.use('/getItem', require('./routes/getItem')(dbConnection));
 
 
 

@@ -7,21 +7,21 @@ module.exports = function(database){
 	router.get('/', function(req, res, next) {
 		var user_id = 2;
 		var client_type = 1; // TEMP
-		var book_id = req.query.book_id;
-		database.query("SELECT * FROM borrowlist WHERE item_id = ?", [book_id], function(error, results){
+		var item_id = req.query.item_id;
+		database.query("SELECT * FROM borrowlist WHERE item_id = ?", [item_id], function(error, results){
 			if(error){
 				console.log(error);
-				res.end("DB Connection Error : Selecting borrowlist, getBook.js");
+				res.end("DB Connection Error : Selecting borrowlist, getItem.js");
 			}
 			else{
 				// RESERVE
 				if(results.length != 0){ // Already taken
 					var borrow_info = results[0]; // id, client_id, item_id, due_date
 					if(borrow_info.client_id == user_id){
-						res.render('getBook', {borrow_info: borrow_info, status: 5});
+						res.render('getItem', {borrow_info: borrow_info, status: 5});
 					}
 					else{
-						database.query("SELECT * FROM reservelist WHERE item_id = ?", [book_id], function(error, results){
+						database.query("SELECT * FROM reservelist WHERE item_id = ?", [item_id], function(error, results){
 							if(error){
 								console.log(error);
 								res.end("DB Connection Error : Inserting for reservation");
@@ -29,19 +29,19 @@ module.exports = function(database){
 							else{
 								if(results.length != 0){
 									if(results[0].client_id == user_id) 
-										res.render('getBook', {status: 1});
+										res.render('getItem', {status: 1});
 									else 
-										res.render('getBook', {status: 6});
+										res.render('getItem', {status: 6});
 								}
 								else{
 									database.query("INSERT INTO reservelist (client_id, item_id) VALUES(?, ?)", 
-										[user_id, book_id], function(error, results){
+										[user_id, item_id], function(error, results){
 										if(error){
 											console.log(error);
 											res.end("DB Connection Error : Inserting for reservation");
 										}
 										else{
-											res.render('getBook', {status: 0});
+											res.render('getItem', {status: 0});
 										}
 									});
 								}
@@ -61,7 +61,7 @@ module.exports = function(database){
 						else{
 							if((client_type == 1 && results.length >= 6) || // Teacher
 								((client_type == 1 || client_type == 2) && results.length >= 3)) { // Student(0) or Official(1)
-								res.render('getBook', {status: 2});
+								res.render('getItem', {status: 2});
 							}
 							else { 
 								// Failed to bring back?
@@ -75,19 +75,19 @@ module.exports = function(database){
 								}
 								
 								if(!can_borrow){
-									res.render('getBook', {status: 3});
+									res.render('getItem', {status: 3});
 								}
 								else{
 									// Borrow it
 									var months = client_type == 1 ? 3 : 1;
 									database.query("INSERT INTO borrowlist (client_id, item_id, due_date, took_date) VALUES(?, ?, DATE_ADD(?, INTERVAL ? MONTH), ?)", 
-										[user_id, book_id, curr_date, months, curr_date], function(error, results){
+										[user_id, item_id, curr_date, months, curr_date], function(error, results){
 										if(error){
 											console.log(error);
 											res.end("DB Connection Error : Inserting for reservation");
 										}
 										else{
-											res.render('getBook', {months: months, status: 4});
+											res.render('getItem', {months: months, status: 4});
 										}
 									});
 								}

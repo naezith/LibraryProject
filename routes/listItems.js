@@ -6,7 +6,7 @@ module.exports = function(database){
 	
 	router.get('/', function(req, res, next) {
 		database.query("SELECT * FROM items", null, function(error, results){
-			res.render('index', {items: results});
+			res.render('listItems', {items: results});
 		});
 	});
 	
