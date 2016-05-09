@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 REGISTER
+  if(errors !== undefined && errors.length > 0)
+    ul
+      each err in errors
+        li #{err} Hatalı
+  form(method="POST", action="/postRegister/")
+    p ID 
+      input(type="text", name="user_id")
+    p Type <dropdown here> (0 - Student, 1 - Teacher, 2 - Official) 
+      input(type="text", name="user_type")
+    p Email 
+      input(type="email", name="email")
+    p
+      input(type="submit")

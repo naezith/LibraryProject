@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  p 
+    a(href="/") Homepage
+  if(error !== undefined && error.length > 0)
+    ul
+      each err in error
+        li #{err} Hatalı
+  h1 LOGIN
+  form(method="POST", action="/postLogin/")
+    p ID 
+     input(type="text", name="user_id")
+    p
+     input(type="submit")

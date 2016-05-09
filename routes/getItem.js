@@ -5,8 +5,9 @@ module.exports = function(database){
 	var moment = require('moment');
 
 	router.get('/', function(req, res, next) {
-		var user_id = 2;
-		var client_type = 1; // TEMP
+		var user_id = req.session.user_id;
+		var client_type = req.session.user_type;
+		
 		var item_id = req.query.item_id;
 		database.query("SELECT * FROM borrowlist WHERE item_id = ?", [item_id], function(error, results){
 			if(error){

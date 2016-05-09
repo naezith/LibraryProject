@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+	h1 Library
+	if(user_id !== undefined)
+		p #{user_id}
+		if(user_type === 0)
+			p Student
+		else if(user_type === 1)
+			p Teacher
+		else if(user_type === 2)
+			p Official
+		p
+			a(href="/listItems") List Projects
+		p
+			a(href="/logout") Logout
+	else
+		p
+			a(href="/register") Register
+		p
+			a(href="/login") Login

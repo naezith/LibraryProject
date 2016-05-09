@@ -36,10 +36,16 @@ var dbConnection = mysql.createConnection({
 	database: 'libraryproj'
 });
 
-app.use('/', require('./routes/listItems')(dbConnection));
+app.use('/', require('./routes/index'));
+app.use('/listItems', require('./routes/listItems')(dbConnection));
 app.use('/getItem', require('./routes/getItem')(dbConnection));
 
+app.use('/login', require('./routes/login'));
+app.use('/postLogin', require('./routes/postLogin')(dbConnection));
+app.use('/logout', require('./routes/logout'));
 
+app.use('/register', require('./routes/register'));
+app.use('/postRegister', require('./routes/postRegister')(dbConnection));
 
 
 
