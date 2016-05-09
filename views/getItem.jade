@@ -25,3 +25,6 @@ block content
 		-else if(status === 7)
 			div(class='callout alert')
 				p Kitap iade edildi. Zamanında getirdiğiniz için teşekkürler!
+		-else if(status === 8)
+			div(class='callout alert')
+				p Kitap iade edildi. #{dept} gün geciktiğiniz için bakiyenizden #{dept} TL düşüldü.

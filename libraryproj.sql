@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 May 2016, 19:30:12
+-- Üretim Zamanı: 09 May 2016, 22:09:59
 -- Sunucu sürümü: 5.6.24
 -- PHP Sürümü: 5.6.8
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `borrowlist` (
   `item_id` int(11) NOT NULL,
   `due_date` varchar(10) NOT NULL,
   `took_date` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ ALTER TABLE `borrowlist`
 -- Tablo için indeksler `client`
 --
 ALTER TABLE `client`
-  ADD UNIQUE KEY `id` (`id`), ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Tablo için indeksler `items`
@@ -115,7 +115,7 @@ ALTER TABLE `reservelist`
 -- Tablo için AUTO_INCREMENT değeri `borrowlist`
 --
 ALTER TABLE `borrowlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Tablo için AUTO_INCREMENT değeri `client`
 --
