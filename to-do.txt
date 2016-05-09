@@ -1,7 +1,5 @@
 TOLGA:
-	Client üye edilmesi gerek.
-	Ýade edince kullanýcýdan parça düþecek, teslim süresi geçse günlük 1 TL ceza, ceza akýllý karttan düþülür.
-	Ýade edilince o kitabý reserve etmiþ kiþiye e-mail atýlýr.
+	Teslim süresi geçse günlük 1 TL ceza, ceza akýllý karttan düþülür.
 MBD :
 	?
 ERKAM : 

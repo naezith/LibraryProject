@@ -2,7 +2,7 @@ extends layout
 
 
 block content
-	h1 KİTAPLAR
+	h1 ÜRÜNLER
 	hr
 	table(class='hover')
 		thead
@@ -19,5 +19,13 @@ block content
 				-var type = items[i].type == 0 ? "Book" : "Magazine";
 				td #{type}
 				td #{items[i].name}
-				td
-					a(href="/getItem?item_id=#{items[i].id}" class='success button del-bot-mrgn') Seç
+				-if(items[i].available)
+					td
+						a(href="/getItem?item_id=#{items[i].id}" class='success button del-bot-mrgn') Al
+				-else 
+					if(items[i].borrowed_by_me)
+						td
+							a(href="/giveBack?item_id=#{items[i].id}" class='success button del-bot-mrgn') İade
+					else
+						td
+							a(href="/getItem?item_id=#{items[i].id}" class='success button del-bot-mrgn') Rezerv

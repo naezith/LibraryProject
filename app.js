@@ -39,6 +39,7 @@ var dbConnection = mysql.createConnection({
 app.use('/', require('./routes/index'));
 app.use('/listItems', require('./routes/listItems')(dbConnection));
 app.use('/getItem', require('./routes/getItem')(dbConnection));
+app.use('/giveBack', require('./routes/giveBack')(dbConnection));
 
 app.use('/login', require('./routes/login'));
 app.use('/postLogin', require('./routes/postLogin')(dbConnection));
