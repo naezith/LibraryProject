@@ -1,7 +1,20 @@
 extends layout
 
 block content
-  h1 Congratulations!
-  p You successfully registered, #{user_id} - #{user_type}
-  p
-    a(href="/") Homepage
+
+  div(class='row')
+    div(class='medium-6 columns')
+      div(class='callout success')
+        | You successfully registered.
+      div(class='callout')
+        p Your ID
+        div(class='stat bot-mrgn') #{user_id}
+        p Your account type
+        div(class='stat bot-mrgn')
+          if (user_type == 0)
+            | Student
+          else if (user_type == 1)
+            | Teacher
+          else if (user_type == 2)
+            | Official
+      a(href="/login" class='button secondary') Go to Login
