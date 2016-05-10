@@ -1,15 +1,18 @@
 extends layout
 
 block content
-  p 
-    a(href="/") Homepage
+  //p
+    //a(href="/") Homepage
   if(error !== undefined && error.length > 0)
     ul
       each err in error
         li #{err} Hatalı
-  h1 LOGIN
-  form(method="POST", action="/postLogin/")
-    p ID 
-     input(type="text", name="user_id")
-    p
-     input(type="submit")
+  h1 Login to your account
+  div(class='row')
+    div(class='medium-6 columns')
+      form(method="POST", action="/postLogin/")
+        div(class='input-group')
+          span(class='input-group-label') ID
+          input(class='input-group-field' type="text", name="user_id", placeholder='Enter your ID')
+
+        button(type="submit" class='button') Login

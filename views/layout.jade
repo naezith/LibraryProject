@@ -1,18 +1,25 @@
 doctype html
 html
 	head
-		title= 'Kütüphane'
+		title= 'Aydınlık University Library'
 		// link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/stylesheets/foundation.css')
 		link(rel='stylesheet', href='/stylesheets/mbd-styles.css')
 	body
 		div(class='top-bar mbd-margin')
-			div(class='row medium-8 large-7 columns')
+			//div(class='row medium-8 large-8 columns')
+			div(class='row columns')
 				ul(class='menu')
 					li
 						div(class='top-bar-title')
-							strong Library
+							strong Aydınlık University
 					li
-						a(href="/") Anasayfa
-		div(class='row medium-8 large-7 columns')
+						a(href="/") Home
+		//div(class='row medium-8 large-7 columns')
+		div(class='row columns')
+			img(src='/images/banner-1.jpg' class='bot-mrgn')
 			block content
+		//-block foot
+			div(class='footer')
+				div(class='row full-width')
+					p FOOTER-//

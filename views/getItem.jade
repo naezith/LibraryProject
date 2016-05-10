@@ -1,30 +1,31 @@
 extends layout
 
 block content
-		-if(status === 0)
-			div(class='callout alert')
-				p Kitap mevcut değil fakat rezerv edildi, mevcut olduğunda e-mail ile haber alacaksınız.
-		-else if(status === 1)
-			div(class='callout warning')
-				p Bu kitabı daha önce rezerv etmiştiniz, mevcut olduğunda e-mail ile haber alacaksınız.
-		-else if(status === 2)
-			div(class='callout alert')
-				p Ödünç alma kapasitenizi doldurduğunuz için kitabı ödünç alamazsınız.
-		-else if(status === 3)
-			div(class='callout alert')
-				p Zamanında teslim etmedikleriniz olduğu için kitabı ödünç alamazsınız.
-		-else if(status === 4)
-			div(class='callout success')
-				p Bu kitabı #{months} ay içerisinde geri getirmek üzere ödünç aldınız.
-		-else if(status === 5)
-			div(class='callout warning')
-				p Bu kitabı daha önceden #{borrow_info.due_date} tarihinden önce geri getirmek üzere ödünç almıştınız.
-		-else if(status === 6)
-			div(class='callout alert')
-				p Bu kitap ödünç alınmış ve de rezerv edilmiş, üzgünüz.
-		-else if(status === 7)
-			div(class='callout alert')
-				p Kitap iade edildi. Zamanında getirdiğiniz için teşekkürler!
-		-else if(status === 8)
-			div(class='callout alert')
-				p Kitap iade edildi. #{dept} gün geciktiğiniz için bakiyenizden #{dept} TL düşüldü.
+	-if(status === 0)
+		div(class='callout alert')
+			p Kitap mevcut değil fakat rezerv edildi, mevcut olduğunda e-mail ile haber alacaksınız.
+	-else if(status === 1)
+		div(class='callout warning')
+			p Bu kitabı daha önce rezerv etmiştiniz, mevcut olduğunda e-mail ile haber alacaksınız.
+	-else if(status === 2)
+		div(class='callout alert')
+			p Ödünç alma kapasitenizi doldurduğunuz için kitabı ödünç alamazsınız.
+	-else if(status === 3)
+		div(class='callout alert')
+			p Zamanında teslim etmedikleriniz olduğu için kitabı ödünç alamazsınız.
+	-else if(status === 4)
+		div(class='callout secondary')
+			p Bu kitabı #{months} ay içerisinde geri getirmek üzere ödünç aldınız.
+	-else if(status === 5)
+		div(class='callout warning')
+			p Bu kitabı daha önceden #{borrow_info.due_date} tarihinden önce geri getirmek üzere ödünç almıştınız.
+	-else if(status === 6)
+		div(class='callout alert')
+			p Bu kitap ödünç alınmış ve de rezerv edilmiş, üzgünüz.
+	-else if(status === 7)
+		div(class='callout success')
+			p Kitap iade edildi. Zamanında getirdiğiniz için teşekkürler!
+	-else if(status === 8)
+		div(class='callout alert')
+			p Kitap iade edildi. #{dept} gün geciktiğiniz için bakiyenizden #{dept} TL düşüldü.
+	a(href='/listItems' class='button') Back
