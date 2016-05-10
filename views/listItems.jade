@@ -2,13 +2,13 @@ extends layout
 
 
 block content
-	h1 ÜRÜNLER
+	h1 Collection
 	hr
 	table(class='hover')
 		thead
 			tr
-				th(width='150') Tür
-				th Ad
+				th(width='150') Type
+				th Name
 				th(width='100')
 		tbody
 		-if(items === undefined || items.length === 0)
@@ -21,11 +21,11 @@ block content
 				td #{items[i].name}
 				-if(items[i].available)
 					td
-						a(href="/getItem?item_id=#{items[i].id}" class='success button del-bot-mrgn') Al
-				-else 
+						a(href="/getItem?item_id=#{items[i].id}" class='button success expanded del-bot-mrgn') Take
+				-else
 					if(items[i].borrowed_by_me)
 						td
-							a(href="/giveBack?item_id=#{items[i].id}" class='success button del-bot-mrgn') İade
+							a(href="/giveBack?item_id=#{items[i].id}" class='button expanded del-bot-mrgn') Give
 					else
 						td
-							a(href="/getItem?item_id=#{items[i].id}" class='success button del-bot-mrgn') Rezerv
+							a(href="/getItem?item_id=#{items[i].id}" class='button secondary expanded del-bot-mrgn') Reserve

@@ -1,18 +1,25 @@
 extends layout
 
 block content
+  h1 Registration
+  div(class='row')
+    div(class='medium-6 columns')
+      if(errors !== undefined && errors.length > 0)
+        div(class='callout alert')
+          ul
+            each err in errors
+              li #{err} Hatalı
+      form(method="POST", action="/postRegister/")
+            label(class='bot-mrgn') ID
+              input(class='input-group-field' type="number", name="user_id" placeholder='Enter your ID number')
+            label Type
+              select(name='user_type')
+                option(value='0') Student
+                option(value='1') Teacher
+                option(value='2') Official
 
-  h1 REGISTER
-  if(errors !== undefined && errors.length > 0)
-    ul
-      each err in errors
-        li #{err} Hatalı
-  form(method="POST", action="/postRegister/")
-    p ID 
-      input(type="text", name="user_id")
-    p Type <dropdown here> (0 - Student, 1 - Teacher, 2 - Official) 
-      input(type="text", name="user_type")
-    p Email 
-      input(type="email", name="email")
-    p
-      input(type="submit")
+            //p Type <dropdown here> (0 - Student, 1 - Teacher, 2 - Official)
+              //input(type="text", name="user_type")
+            label(class='bot-mrgn') Email
+              input(type="email", name="email" placeholder='Enter your e-mail address')
+            button(type="submit" class='button') Sign Up
