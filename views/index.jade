@@ -1,9 +1,9 @@
 extends layout
 
 block content
-	h3 Aydınlık University Library
-	hr
 	if(user_id !== undefined)
+		h3 Your account
+		hr
 		p Your ID
 		div(class='stat bot-mrgn') #{user_id}
 		p Your account type
@@ -19,6 +19,8 @@ block content
 		div
 			a(href="/logout" class='button secondary') Logout
 	else
+		h3 Aydınlık University Library
+		hr
 		div(class='large-8 columns')
 			img(src='/images/lib-7.jpg')
 		div(class='large-4 columns')
